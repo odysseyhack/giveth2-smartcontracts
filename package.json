@@ -13,5 +13,7 @@
     "embarkjs-connector-web3": "^4.0.0"
   },
   "gitHead": "21f5367bebe10594ffcc26f3aa4b574b1226472a",
-  "dependencies": {}
+  "dependencies": {
+    "openzeppelin-solidity": "^2.2.0"
+  }
 }

@@ -30,11 +30,11 @@ interface BondingCurve {
 
     event Transfer(address indexed from, address indexed to, uint256 value);
 
-    function mint(uint xdai) public;
+    function mint(uint xdai) external;
 
-    function getPrice() public view returns (uint price);
+    function getPrice() external view returns (uint price);
 
-    function burn(uint amount) public;
+    function burn(uint amount) external;
 }
 
 contract BasicBondingCurve is BondingCurve, Ownable {
@@ -58,7 +58,7 @@ contract BasicBondingCurve is BondingCurve, Ownable {
         return balances[tokenOwner];
     }
 
-    function mint(address to, uint256 xdai) public onlyOwner returns (bool) {
+    function mint(address to, uint256 xdai) external onlyOwner returns (bool) {
         require(to != address(0), "Cannot mint to address(0).");
         // Determine number of tokens based on price and xdai
         uint price = _totalSupply.add(1);
@@ -73,11 +73,11 @@ contract BasicBondingCurve is BondingCurve, Ownable {
         return true;
     }
 
-    function getPrice() public view returns (uint price) {
+    function getPrice() external view returns (uint price) {
         return _totalSupply.add(1);
     }
 
-    function burn(uint amount) public {
+    function burn(uint amount) external {
         require(amount <= _totalSupply, "Amount exceeds total supply.");
         require(balances[msg.sender] >= amount, "Amount exceeds user balance");
 

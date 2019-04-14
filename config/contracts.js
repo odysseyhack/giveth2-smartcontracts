@@ -1,3 +1,16 @@
+// Curve parameters:
+const reserveRatio = 142857;  // Kappa (~ 6)
+const theta = 350000;         // 35% in ppm
+const p0 =  1;                // Price of internal token in external tokens.
+const initialRaise = 300000;  // Raise amount in external tokens.
+const friction = 20000;       // 2% in ppm
+
+const gasPrice = 15000000000; // 15 gwei
+
+const duration = 3024000000000000; // ~5 weeks.
+const minExternalContibution = 100000;
+
+
 module.exports = {
   // default applies to all environments
   default: {
@@ -68,8 +81,31 @@ module.exports = {
       "$WEB3"  // uses pre existing web3 object if available (e.g in Mist)
     ],
     contracts: {
+      CommonsToken: {
+        args: ['$ERC20', reserveRatio, gasPrice, theta, p0, initialRaise, '$FundingPoolMock', friction, duration, minExternalContibution]
+      },
+      ConvictionVoting: {
+        track: false,
+        args: ['$CommonsToken']
+      },
+      BondingCurve: {
+        deploy: false
+      },
+      ERC20Mintable: {
+        args: ["0x0624156967866E4BB0DbD468Bf9c077777cf1542"]
+      },
+      MinterRole: {
+        args: ["0x0624156967866E4BB0DbD468Bf9c077777cf1542"]
+      },
       Commons: {
-        args: ['$ERC20']
+        deploy: false
+      },
+      ERC20BondingToken: {
+        deploy: false
+      },
+      Milestone: {
+        track: false,
+        args: ["0x0624156967866E4BB0DbD468Bf9c077777cf1542", 10]
       }
     }
   },
