@@ -69,27 +69,6 @@ module.exports = {
     simulatorBlocktime: 0
   },
 
-  privateparitynet: {
-    ethereumClientName: "parity",
-    networkType: "custom",
-    networkId: 1337,
-    isDev: false,
-    genesisBlock: "config/privatenet/genesis-parity.json", // Genesis block to initiate on first creation of a development node
-    datadir: ".embark/privatenet/datadir",
-    mineWhenNeeded: false,
-    nodiscover: true,
-    maxpeers: 0,
-    proxy: true,
-    accounts: [
-      {
-        nodeAccounts: true,
-        password: "config/privatenet/password"
-      }
-    ],
-    targetGasLimit: 8000000,
-    simulatorBlocktime: 0
-  },
-
   // merges with the settings in default
   // used with "embark run testnet" and/or "embark blockchain testnet"
   testnet: {
