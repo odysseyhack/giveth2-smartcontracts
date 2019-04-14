@@ -13,33 +13,8 @@ module.exports = {
       auto: true,
       additionalCors: []
     },
-    wsHost: "localhost", // WS-RPC server listening interface (default: "localhost")
-    wsPort: 8546 // WS-RPC server listening port (default: 8546)
-
-    // Accounts to use as node accounts
-    // The order here corresponds to the order of `web3.eth.getAccounts`, so the first one is the `defaultAccount`
-    /*,accounts: [
-      {
-        nodeAccounts: true, // Accounts use for the node
-        numAddresses: "1", // Number of addresses/accounts (defaults to 1)
-        password: "config/development/devpassword" // Password file for the accounts
-      },
-      // Below are additional accounts that will count as `nodeAccounts` in the `deployment` section of your contract config
-      // Those will not be unlocked in the node itself
-      {
-        privateKey: "your_private_key"
-      },
-      {
-        privateKeyFile: "path/to/file", // Either a keystore or a list of keys, separated by , or ;
-        password: "passwordForTheKeystore" // Needed to decrypt the keystore file
-      },
-      {
-        mnemonic: "12 word mnemonic",
-        addressIndex: "0", // Optional. The index to start getting the address
-        numAddresses: "1", // Optional. The number of addresses to get
-        hdpath: "m/44'/60'/0'/0/" // Optional. HD derivation path
-      }
-    ]*/
+    wsHost: "localhost",
+    wsPort: 8546
   },
 
   // default environment, merges with the settings in default
